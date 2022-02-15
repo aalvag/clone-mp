@@ -1,0 +1,339 @@
+import { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  Button,
+  TouchableOpacity,
+} from "react-native";
+import {
+  FontAwesome,
+  AntDesign,
+  MaterialIcons,
+  FontAwesome5,
+} from "@expo/vector-icons";
+import { useFonts } from "expo-font";
+import { Audio } from "expo-av";
+
+const SuccessScreen = ({ route, navigation }) => {
+  const { number, text } = route.params;
+  const [sound, setSound] = useState(null);
+
+  const [fontsLoaded] = useFonts({
+    "Proxima-Nova-SBold": require("../../assets/fonts/Proxima-Nova-Sbold.otf"),
+  });
+
+  async function playSound() {
+    const { sound } = await Audio.Sound.createAsync(
+      require("../../assets/sounds/success.mp3")
+    );
+    setSound(sound);
+    await sound.playAsync();
+  }
+  useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      playSound();
+    }, 500);
+  }, []);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    <>
+      <View style={styles.header}>
+        <View style={{ padding: 32 }}>
+          <TouchableOpacity
+            style={{ marginBottom: 10 }}
+            onPress={() => {
+              navigation.navigate("Scanner");
+            }}
+          >
+            <AntDesign name="close" size={24} color="white" />
+          </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <View>
+              <Text
+                style={{
+                  fontSize: 22,
+                  color: "white",
+                  fontFamily: "Proxima-Nova-SBold",
+                }}
+              >
+                ¡Listo! Ya le pagaste a
+              </Text>
+              <Text
+                style={{
+                  fontSize: 22,
+                  color: "white",
+                  fontFamily: "Proxima-Nova-SBold",
+                }}
+              >
+                {text}
+              </Text>
+            </View>
+            <View>
+              <View
+                style={{
+                  backgroundColor: "white",
+                  padding: 10,
+                  borderRadius: 50,
+                }}
+              >
+                <FontAwesome name="shopping-bag" size={30} color="#0DB578" />
+              </View>
+              <View
+                style={{
+                  alignSelf: "flex-end",
+                  marginTop: -13,
+                  backgroundColor: "white",
+                  borderRadius: 50,
+                }}
+              >
+                <AntDesign name="checkcircle" size={18} color="green" />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View style={styles.body}>
+        <View style={{ paddingHorizontal: 30, paddingVertical: 15 }}>
+          <View
+            style={{
+              marginBottom: 30,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <View
+              style={{
+                borderWidth: 1,
+                borderRadius: 50,
+                // paddingVertical: 8,
+                paddingBottom: 16,
+                paddingTop: 6,
+                paddingHorizontal: 12,
+                // padding: 12,
+                borderColor: "#818181",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={{
+                  uri: "https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png",
+                }}
+                style={{
+                  width: 30,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                }}
+              />
+              {/* <FontAwesome5 name="cc-visa" size={21} color="#1434CB" /> */}
+              <Text
+                style={{
+                  fontSize: 9,
+                  position: "absolute",
+                  bottom: 10,
+                }}
+              >
+                Débito
+              </Text>
+            </View>
+
+            <View style={{ flex: 1, marginHorizontal: 20 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "black",
+                  fontWeight: "bold",
+                  fontFamily: "Proxima-Nova-SBold",
+                }}
+              >
+                {number}
+              </Text>
+              <Text style={{ fontSize: 14, color: "#818181" }}>
+                Visa Débito terminada en 7894
+              </Text>
+            </View>
+          </View>
+          <View
+            style={{
+              marginBottom: 30,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <View
+              style={{
+                borderWidth: 1,
+                borderRadius: 50,
+                padding: 8,
+                borderColor: "#818181",
+              }}
+            >
+              <MaterialIcons name="qr-code-2" size={40} color="black" />
+            </View>
+            <View style={{ flex: 1, marginHorizontal: 20 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "black",
+                  fontWeight: "bold",
+                  fontFamily: "Proxima-Nova-SBold",
+                }}
+              >
+                Operación #17245685211
+              </Text>
+              <Text style={{ fontSize: 14, color: "#818181" }}>
+                {new Date().getDate()} de febrero de {new Date().getFullYear()}{" "}
+                a las {new Date().getHours()}:{new Date().getMinutes()} hs
+              </Text>
+            </View>
+          </View>
+          <View
+            style={{
+              marginBottom: 30,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <View
+              style={{
+                borderWidth: 4,
+                borderRadius: 50,
+                height: 55,
+                width: 55,
+                borderColor: "#00B1EA",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text
+                style={{ fontSize: 30, color: "#00B1EA", fontWeight: "bold" }}
+              >
+                4
+              </Text>
+            </View>
+            <View style={{ flex: 1, marginHorizontal: 20 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "black",
+                  fontWeight: "bold",
+                  fontFamily: "Proxima-Nova-SBold",
+                }}
+              >
+                Sumaste 34 Mercado Puntos
+              </Text>
+              <Text style={{ fontSize: 16, color: "#00B1EA" }}>
+                Ver mis beneficios
+              </Text>
+            </View>
+          </View>
+          <View style={{ marginBottom: 10 }}>
+            <Text
+              style={{
+                fontFamily: "Proxima-Nova-SBold",
+                fontSize: 22,
+                color: "black",
+                alignSelf: "center",
+              }}
+            >
+              Descuentos para vos
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: 20,
+            }}
+          >
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Image
+                source={require("../../assets/logo-puma1.jpg")}
+                style={{
+                  height: 60,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                  borderRadius: 50,
+                  marginBottom: 10,
+                }}
+              />
+
+              <Text style={{ fontSize: 12 }}>HASTA</Text>
+              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../../assets/logo-mostaza.jpg")}
+                style={{
+                  height: 60,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                  borderRadius: 50,
+                  marginBottom: 10,
+                }}
+              />
+              <Text style={{ fontSize: 12 }}>HASTA</Text>
+              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../../assets/logo-farmacity.png")}
+                style={{
+                  height: 60,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                  borderRadius: 50,
+                  marginBottom: 10,
+                }}
+              />
+              <Text style={{ fontSize: 12 }}>HASTA</Text>
+              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </>
+  );
+};
+
+export default SuccessScreen;
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: "#0DB578",
+    justifyContent: "center",
+  },
+});
