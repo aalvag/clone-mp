@@ -17,6 +17,10 @@ const InputScreen = ({ route, navigation }) => {
     navigation.navigate("Success", { number, text });
   };
 
+  const onButtonPressSend = () => {
+    navigation.navigate("SuccessSend", { number, text });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
@@ -45,6 +49,9 @@ const InputScreen = ({ route, navigation }) => {
         <TouchableOpacity onPress={onButtonPress} style={styles.button}>
           <Text style={styles.buttonText}>Continuar</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={onButtonPressSend} style={styles.button}>
+          <Text style={styles.buttonText}>Envio Dinero</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -71,16 +78,18 @@ const styles = StyleSheet.create({
   },
   inputText: {},
   buttonContainer: {
-    alignSelf: "stretch",
-    justifyContent: "flex-end",
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 20,
     marginHorizontal: 20,
+    width: "100%",
   },
   button: {
     padding: 12,
     backgroundColor: "#008AD6",
     borderRadius: 5,
     alignItems: "center",
+    width: "45%",
   },
   buttonText: { color: "white", fontSize: 18 },
 });

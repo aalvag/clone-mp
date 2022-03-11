@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CodeScannerScreen from "../screens/CodeScannerScreen";
 import InputScreen from "../screens/InputScreen";
 import SuccessScreen from "../screens/SuccessScreen";
+import SuccessSendScreen from "../screens/SuccessSendScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,13 @@ const Navigation = () => {
         <Stack.Screen
           name="Success"
           component={SuccessScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SuccessSend"
+          component={SuccessSendScreen}
           options={{
             headerShown: false,
           }}

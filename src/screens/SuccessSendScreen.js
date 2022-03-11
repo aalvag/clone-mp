@@ -12,12 +12,15 @@ import {
   FontAwesome,
   AntDesign,
   MaterialIcons,
+  MaterialCommunityIcons,
   FontAwesome5,
 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import { Audio } from "expo-av";
+import Account from "../components/Account";
+import Handle from "../components/Handle";
 
-const SuccessScreen = ({ route, navigation }) => {
+const SuccessSendScreen = ({ route, navigation }) => {
   const { number, text } = route.params;
   const [sound, setSound] = useState(null);
 
@@ -69,7 +72,11 @@ const SuccessScreen = ({ route, navigation }) => {
               justifyContent: "space-between",
             }}
           >
-            <View>
+            <View
+              style={{
+                maxWidth: "95%",
+              }}
+            >
               <Text
                 style={{
                   fontSize: 22,
@@ -77,27 +84,18 @@ const SuccessScreen = ({ route, navigation }) => {
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
-                ¡Listo! Ya le pagaste a
-              </Text>
-              <Text
-                style={{
-                  fontSize: 22,
-                  color: "white",
-                  fontFamily: "Proxima-Nova-SBold",
-                }}
-              >
-                {text}
+                ¡Listo! Enviaste {number} a {text}
               </Text>
             </View>
             <View>
               <View
                 style={{
                   backgroundColor: "white",
-                  padding: 10,
+                  padding: 2,
                   borderRadius: 50,
                 }}
               >
-                <FontAwesome name="shopping-bag" size={30} color="#0DB578" />
+                <Account />
               </View>
               <View
                 style={{
@@ -115,67 +113,7 @@ const SuccessScreen = ({ route, navigation }) => {
       </View>
       <View style={styles.body}>
         <View style={{ paddingHorizontal: 30, paddingVertical: 15 }}>
-          <View
-            style={{
-              marginBottom: 30,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <View
-              style={{
-                borderWidth: 1,
-                borderRadius: 50,
-                // paddingVertical: 8,
-                paddingBottom: 16,
-                paddingTop: 6,
-                paddingHorizontal: 12,
-                // padding: 12,
-                borderColor: "#818181",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Image
-                source={{
-                  uri: "https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png",
-                }}
-                style={{
-                  width: 30,
-                  aspectRatio: 1,
-                  resizeMode: "contain",
-                }}
-              />
-              {/* <FontAwesome5 name="cc-visa" size={21} color="#1434CB" /> */}
-              <Text
-                style={{
-                  fontSize: 9,
-                  position: "absolute",
-                  bottom: 10,
-                }}
-              >
-                Débito
-              </Text>
-            </View>
-
-            <View style={{ flex: 1, marginHorizontal: 20 }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  color: "black",
-                  fontWeight: "bold",
-                  fontFamily: "Proxima-Nova-SBold",
-                }}
-              >
-                {number}
-              </Text>
-              <Text style={{ fontSize: 14, color: "#818181" }}>
-                Visa Débito terminada en 7894
-              </Text>
-            </View>
-          </View>
-          <View
+          {/* <View
             style={{
               marginBottom: 30,
               flexDirection: "row",
@@ -209,8 +147,8 @@ const SuccessScreen = ({ route, navigation }) => {
                 las {new Date().getHours()}:{new Date().getMinutes()} hs
               </Text>
             </View>
-          </View>
-          <View
+          </View> */}
+          {/* <View
             style={{
               marginBottom: 30,
               flexDirection: "row",
@@ -250,7 +188,7 @@ const SuccessScreen = ({ route, navigation }) => {
                 Ver mis beneficios
               </Text>
             </View>
-          </View>
+          </View> */}
           <View style={{ marginBottom: 10 }}>
             <Text
               style={{
@@ -323,13 +261,130 @@ const SuccessScreen = ({ route, navigation }) => {
               <Text style={{ fontSize: 20 }}>20% OFF</Text>
             </View>
           </View>
+          <Text
+            style={{
+              color: "#60C1F8",
+              textAlign: "center",
+              padding: 10,
+              fontSize: 18,
+              borderWidth: 1,
+              borderColor: "#60C1F8",
+              borderRadius: 5,
+              marginTop: 30,
+              marginBottom: 30,
+            }}
+          >
+            Ver todos los Descuentos
+          </Text>
+          <View
+            style={{
+              marginBottom: 30,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <View
+              style={{
+                padding: 12,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Handle />
+            </View>
+            <View style={{ flex: 1, marginHorizontal: 20 }}>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: "grey",
+                }}
+              >
+                Recibí dinero en el acto en tu cuenta de Mercado Pago
+              </Text>
+              <Text style={{ fontSize: 14, color: "#60C1F8" }}>
+                Simular Préstamo Personal
+              </Text>
+            </View>
+          </View>
+          <View
+            style={{
+              marginBottom: 30,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <View
+              style={{
+                borderWidth: 1,
+                borderRadius: 50,
+                // paddingVertical: 8,
+                paddingBottom: 16,
+                paddingTop: 6,
+                paddingHorizontal: 12,
+                // padding: 12,
+                borderColor: "#818181",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={{
+                  uri: "https://cdn.visa.com/v2/assets/images/logos/visa/blue/logo.png",
+                }}
+                style={{
+                  width: 30,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                }}
+              />
+              {/* <FontAwesome5 name="cc-visa" size={21} color="#1434CB" /> */}
+              <Text
+                style={{
+                  fontSize: 9,
+                  position: "absolute",
+                  bottom: 10,
+                }}
+              >
+                Débito
+              </Text>
+            </View>
+
+            <View style={{ flex: 1, marginHorizontal: 20 }}>
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "black",
+                  fontWeight: "bold",
+                  fontFamily: "Proxima-Nova-SBold",
+                }}
+              >
+                {number}
+              </Text>
+              <Text style={{ fontSize: 14, color: "#818181" }}>
+                Visa Débito terminada en 7894
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={{
+              fontSize: 12,
+              color: "#818181",
+              textAlign: "center",
+              padding: 10,
+            }}
+          >
+            Recordá usar la seccion Amigos para fines personales y no
+            comerciales
+          </Text>
         </View>
       </View>
     </>
   );
 };
 
-export default SuccessScreen;
+export default SuccessSendScreen;
 
 const styles = StyleSheet.create({
   header: {
