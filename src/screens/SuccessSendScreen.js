@@ -74,7 +74,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
           >
             <View
               style={{
-                maxWidth: "95%",
+                maxWidth: "85%",
               }}
             >
               <Text
@@ -91,11 +91,30 @@ const SuccessSendScreen = ({ route, navigation }) => {
               <View
                 style={{
                   backgroundColor: "white",
-                  padding: 2,
                   borderRadius: 50,
                 }}
               >
-                <Account />
+                {text.toLowerCase() === "romero carmelo javier" ? (
+                  <Image
+                    source={{
+                      uri: "https://mla-s2-p.mlstatic.com/842647-MLA40550539619_012020-O.jpg",
+                    }}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
+                ) : text.toLowerCase() === "asador bandera verde" ? (
+                  <Image
+                    source={{
+                      uri: "https://mla-s2-p.mlstatic.com/878295-MLA41574877999_042020-I.jpg",
+                    }}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
+                ) : (
+                  <Account
+                    style={{
+                      padding: 2,
+                    }}
+                  />
+                )}
               </View>
               <View
                 style={{
@@ -113,82 +132,6 @@ const SuccessSendScreen = ({ route, navigation }) => {
       </View>
       <View style={styles.body}>
         <View style={{ paddingHorizontal: 30, paddingVertical: 15 }}>
-          {/* <View
-            style={{
-              marginBottom: 30,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <View
-              style={{
-                borderWidth: 1,
-                borderRadius: 50,
-                padding: 8,
-                borderColor: "#818181",
-              }}
-            >
-              <MaterialIcons name="qr-code-2" size={40} color="black" />
-            </View>
-            <View style={{ flex: 1, marginHorizontal: 20 }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  color: "black",
-                  fontWeight: "bold",
-                  fontFamily: "Proxima-Nova-SBold",
-                }}
-              >
-                Operación #17245685211
-              </Text>
-              <Text style={{ fontSize: 14, color: "#818181" }}>
-                {new Date().getDate()} de marzo de {new Date().getFullYear()} a
-                las {new Date().getHours()}:{new Date().getMinutes()} hs
-              </Text>
-            </View>
-          </View> */}
-          {/* <View
-            style={{
-              marginBottom: 30,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <View
-              style={{
-                borderWidth: 4,
-                borderRadius: 50,
-                height: 55,
-                width: 55,
-                borderColor: "#00B1EA",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{ fontSize: 30, color: "#00B1EA", fontWeight: "bold" }}
-              >
-                4
-              </Text>
-            </View>
-            <View style={{ flex: 1, marginHorizontal: 20 }}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  color: "black",
-                  fontWeight: "bold",
-                  fontFamily: "Proxima-Nova-SBold",
-                }}
-              >
-                Sumaste 34 Mercado Puntos
-              </Text>
-              <Text style={{ fontSize: 16, color: "#00B1EA" }}>
-                Ver mis beneficios
-              </Text>
-            </View>
-          </View> */}
           <View style={{ marginBottom: 10 }}>
             <Text
               style={{

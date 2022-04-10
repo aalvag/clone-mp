@@ -20,6 +20,20 @@ import { Audio } from "expo-av";
 const SuccessScreen = ({ route, navigation }) => {
   const { number, text } = route.params;
   const [sound, setSound] = useState(null);
+  const months = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
 
   const [fontsLoaded] = useFonts({
     "Proxima-Nova-SBold": require("../../assets/fonts/Proxima-Nova-Sbold.otf"),
@@ -93,11 +107,32 @@ const SuccessScreen = ({ route, navigation }) => {
               <View
                 style={{
                   backgroundColor: "white",
-                  padding: 10,
+                  padding: 0,
                   borderRadius: 50,
                 }}
               >
-                <FontAwesome name="shopping-bag" size={30} color="#0DB578" />
+                {text.toLowerCase() === "xianbing lin" ? (
+                  <Image
+                    source={{
+                      uri: "https://mla-s2-p.mlstatic.com/680399-MLA48498454284_122021-I.jpg",
+                    }}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
+                ) : text.toLowerCase() === "asador bandera verde" ? (
+                  <Image
+                    source={{
+                      uri: "https://mla-s2-p.mlstatic.com/878295-MLA41574877999_042020-I.jpg",
+                    }}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
+                ) : (
+                  <FontAwesome
+                    name="shopping-bag"
+                    size={30}
+                    color="#0DB578"
+                    style={{ padding: 10 }}
+                  />
+                )}
               </View>
               <View
                 style={{
@@ -205,8 +240,9 @@ const SuccessScreen = ({ route, navigation }) => {
                 Operación #17245685211
               </Text>
               <Text style={{ fontSize: 14, color: "#818181" }}>
-                {new Date().getDate()} de marzo de {new Date().getFullYear()} a
-                las {new Date().getHours()}:{new Date().getMinutes()} hs
+                {new Date().getDate()} de {months[new Date().getMonth()]} de{" "}
+                {new Date().getFullYear()} a las {new Date().getHours()}:
+                {new Date().getMinutes()} hs
               </Text>
             </View>
           </View>
