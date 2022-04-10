@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { MaskedTextInput } from "react-native-mask-text";
 import {
   SafeAreaView,
