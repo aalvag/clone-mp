@@ -96,9 +96,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
               >
                 {text.toLowerCase() === "romero carmelo javier" ? (
                   <Image
-                    source={{
-                      uri: "https://mla-s2-p.mlstatic.com/842647-MLA40550539619_012020-O.jpg",
-                    }}
+                    source={require("../../assets/romero.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
                 ) : text.toLowerCase() === "asador bandera verde" ? (

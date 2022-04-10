@@ -113,16 +113,12 @@ const SuccessScreen = ({ route, navigation }) => {
               >
                 {text.toLowerCase() === "xianbing lin" ? (
                   <Image
-                    source={{
-                      uri: "https://mla-s2-p.mlstatic.com/680399-MLA48498454284_122021-I.jpg",
-                    }}
+                    source={require("../../assets/xianbing.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
                 ) : text.toLowerCase() === "asador bandera verde" ? (
                   <Image
-                    source={{
-                      uri: "https://mla-s2-p.mlstatic.com/878295-MLA41574877999_042020-I.jpg",
-                    }}
+                    source={require("../../assets/asador.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
                 ) : (
