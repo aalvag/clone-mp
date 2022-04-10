@@ -21,6 +21,10 @@ const InputScreen = ({ route, navigation }) => {
     navigation.navigate("SuccessSend", { number, text });
   };
 
+  const onButtonPressTransfer = () => {
+    navigation.navigate("SuccessTransfer", { number, text });
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
@@ -51,6 +55,9 @@ const InputScreen = ({ route, navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity onPress={onButtonPressSend} style={styles.button}>
           <Text style={styles.buttonText}>Envio Dinero</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onButtonPressTransfer} style={styles.button}>
+          <Text style={styles.buttonText}>Transferencia</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -89,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#008AD6",
     borderRadius: 5,
     alignItems: "center",
-    width: "45%",
+    width: "30%",
   },
-  buttonText: { color: "white", fontSize: 18 },
+  buttonText: { color: "white", fontSize: 14 },
 });

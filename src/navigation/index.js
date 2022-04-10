@@ -5,6 +5,7 @@ import CodeScannerScreen from "../screens/CodeScannerScreen";
 import InputScreen from "../screens/InputScreen";
 import SuccessScreen from "../screens/SuccessScreen";
 import SuccessSendScreen from "../screens/SuccessSendScreen";
+import SuccessTranferScreen from "../screens/SuccessTransferScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,13 @@ const Navigation = () => {
         <Stack.Screen
           name="SuccessSend"
           component={SuccessSendScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SuccessTransfer"
+          component={SuccessTranferScreen}
           options={{
             headerShown: false,
           }}
