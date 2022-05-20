@@ -7,10 +7,12 @@ import {
   View,
   TouchableOpacity,
   Text,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
 const InputScreen = ({ route, navigation }) => {
-  const [text, onChangeText] = useState("Carniceria FV");
+  const [text, onChangeText] = useState("XIANBING LIN");
   const [number, onChangeNumber] = useState(0);
 
   const onButtonPress = () => {
@@ -26,7 +28,10 @@ const InputScreen = ({ route, navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.inputText}
@@ -60,7 +65,7 @@ const InputScreen = ({ route, navigation }) => {
           <Text style={styles.buttonText}>Transferencia</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -70,13 +75,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     backgroundColor: "#ededed",
   },
   inputContainer: {
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
   },
   inputNumber: {
     margin: 12,
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginBottom: 20,
+    // marginBottom: 20,
     marginHorizontal: 20,
     width: "100%",
   },

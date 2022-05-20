@@ -188,7 +188,7 @@ const SuccessTranferScreen = ({ route, navigation }) => {
             <Text
               style={{
                 fontFamily: "Proxima-Nova-SBold",
-                fontSize: 22,
+                fontSize: 20,
                 color: "black",
                 alignSelf: "flex-start",
                 marginVertical: 5,
