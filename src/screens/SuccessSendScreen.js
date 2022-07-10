@@ -19,6 +19,7 @@ import { useFonts } from "expo-font";
 import { Audio } from "expo-av";
 import Account from "../components/Account";
 import Handle from "../components/Handle";
+import LogoMP from "../components/LogoMP";
 
 const SuccessSendScreen = ({ route, navigation }) => {
   const { number, text } = route.params;
@@ -81,10 +82,11 @@ const SuccessSendScreen = ({ route, navigation }) => {
                 style={{
                   fontSize: 22,
                   color: "white",
+                  lineHeight: 30,
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
-                ¡Listo! Enviaste {number} a {text}
+                ¡Listo! Transferiste {number} a {text}
               </Text>
             </View>
             <View>
@@ -94,15 +96,22 @@ const SuccessSendScreen = ({ route, navigation }) => {
                   borderRadius: 50,
                 }}
               >
-                {text.toLowerCase() === "romero carmelo javier" ? (
+                {text.toLowerCase().trim() === "romero carmelo javier" ? (
                   <Image
                     source={require("../../assets/romero.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
-                ) : text.toLowerCase() === "asador bandera verde" ? (
+                ) : text.toLowerCase().trim() === "asador bandera verde" ? (
                   <Image
                     source={{
                       uri: "https://mla-s2-p.mlstatic.com/878295-MLA41574877999_042020-I.jpg",
+                    }}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
+                ) : text.toLowerCase().trim() === "zihua liu" ? (
+                  <Image
+                    source={{
+                      uri: "https://mla-s2-p.mlstatic.com/766732-MLA47908513654_102021-O.jpg",
                     }}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
@@ -128,7 +137,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
           </View>
         </View>
       </View>
-      <View style={styles.body}>
+      <View style={{}}>
         <View style={{ paddingHorizontal: 30, paddingVertical: 15 }}>
           <View style={{ marginBottom: 10 }}>
             <Text
@@ -150,7 +159,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
           >
             <View style={{ flex: 1, alignItems: "center" }}>
               <Image
-                source={require("../../assets/logo-puma1.jpg")}
+                source={require("../../assets/264px-Gulf_logo.png")}
                 style={{
                   height: 60,
                   aspectRatio: 1,
@@ -161,7 +170,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
               />
 
               <Text style={{ fontSize: 12 }}>HASTA</Text>
-              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+              <Text style={{ fontSize: 20 }}>10% OFF</Text>
             </View>
             <View
               style={{
@@ -170,7 +179,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
               }}
             >
               <Image
-                source={require("../../assets/logo-mostaza.jpg")}
+                source={require("../../assets/rex_logo.jpg")}
                 style={{
                   height: 60,
                   aspectRatio: 1,
@@ -189,7 +198,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
               }}
             >
               <Image
-                source={require("../../assets/logo-farmacity.png")}
+                source={require("../../assets/logo-puma1.jpg")}
                 style={{
                   height: 60,
                   aspectRatio: 1,
@@ -199,7 +208,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
                 }}
               />
               <Text style={{ fontSize: 12 }}>HASTA</Text>
-              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+              <Text style={{ fontSize: 20 }}>5% OFF</Text>
             </View>
           </View>
           <Text
@@ -256,7 +265,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
               justifyContent: "space-evenly",
             }}
           >
-            <View
+            {/* <View
               style={{
                 borderWidth: 1,
                 borderRadius: 50,
@@ -280,7 +289,6 @@ const SuccessSendScreen = ({ route, navigation }) => {
                   resizeMode: "contain",
                 }}
               />
-              {/* <FontAwesome5 name="cc-visa" size={21} color="#1434CB" /> */}
               <Text
                 style={{
                   fontSize: 9,
@@ -290,7 +298,9 @@ const SuccessSendScreen = ({ route, navigation }) => {
               >
                 Débito
               </Text>
-            </View>
+            </View> */}
+
+            <LogoMP />
 
             <View style={{ flex: 1, marginHorizontal: 20 }}>
               <Text
@@ -304,20 +314,37 @@ const SuccessSendScreen = ({ route, navigation }) => {
                 {number}
               </Text>
               <Text style={{ fontSize: 14, color: "#818181" }}>
-                Visa Débito terminada en 7894
+                Disponible en Mercado Pago
               </Text>
             </View>
           </View>
+
           <Text
             style={{
-              fontSize: 12,
-              color: "#818181",
+              color: "white",
+              backgroundColor: "#009fe3",
               textAlign: "center",
               padding: 10,
+              fontSize: 16,
+              borderWidth: 1,
+              borderColor: "#009fe3",
+              borderRadius: 5,
+              marginBottom: 10,
             }}
           >
-            Recordá usar la seccion Amigos para fines personales y no
-            comerciales
+            Compartir Comprobante
+          </Text>
+          <Text
+            style={{
+              color: "#009fe3",
+              textAlign: "center",
+              padding: 10,
+              fontSize: 16,
+              marginTop: 90,
+              marginBottom: 10,
+            }}
+          >
+            Volver al inicio
           </Text>
         </View>
       </View>
@@ -329,7 +356,7 @@ export default SuccessSendScreen;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#0DB578",
+    backgroundColor: "#00a650",
     justifyContent: "center",
   },
 });

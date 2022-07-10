@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 const InputScreen = ({ route, navigation }) => {
-  const [text, onChangeText] = useState("XIANBING LIN");
+  const [text, onChangeText] = useState("Supermercado");
   const [number, onChangeNumber] = useState(0);
 
   const onButtonPress = () => {

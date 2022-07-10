@@ -16,6 +16,7 @@ import {
 } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import { Audio } from "expo-av";
+import ShoppingBag from "../components/ShoppingBag";
 
 const SuccessScreen = ({ route, navigation }) => {
   const { number, text } = route.params;
@@ -88,6 +89,7 @@ const SuccessScreen = ({ route, navigation }) => {
                 style={{
                   fontSize: 22,
                   color: "white",
+                  lineHeight: 30,
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
@@ -97,6 +99,7 @@ const SuccessScreen = ({ route, navigation }) => {
                 style={{
                   fontSize: 22,
                   color: "white",
+                  lineHeight: 30,
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
@@ -111,23 +114,18 @@ const SuccessScreen = ({ route, navigation }) => {
                   borderRadius: 50,
                 }}
               >
-                {text.toLowerCase() === "xianbing lin" ? (
+                {text.toLowerCase().trim() === "numa corrientes" ? (
                   <Image
-                    source={require("../../assets/xianbing.jpg")}
+                    source={require("../../assets/numa-corrientes.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
-                ) : text.toLowerCase() === "asador bandera verde" ? (
+                ) : text.toLowerCase().trim() === "asador bandera verde" ? (
                   <Image
                     source={require("../../assets/asador.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
                 ) : (
-                  <FontAwesome
-                    name="shopping-bag"
-                    size={30}
-                    color="#0DB578"
-                    style={{ padding: 10 }}
-                  />
+                  <ShoppingBag />
                 )}
               </View>
               <View
@@ -233,7 +231,7 @@ const SuccessScreen = ({ route, navigation }) => {
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
-                Operación #17245685211
+                Operación #27245685211
               </Text>
               <Text style={{ fontSize: 14, color: "#818181" }}>
                 {new Date().getDate()} de {months[new Date().getMonth()]} de{" "}
@@ -252,7 +250,7 @@ const SuccessScreen = ({ route, navigation }) => {
           >
             <View
               style={{
-                borderWidth: 4,
+                borderWidth: 3,
                 borderRadius: 50,
                 height: 55,
                 width: 55,
@@ -276,7 +274,7 @@ const SuccessScreen = ({ route, navigation }) => {
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
-                Sumaste 34 Mercado Puntos
+                Sumaste 16 Mercado Puntos
               </Text>
               <Text style={{ fontSize: 16, color: "#00B1EA" }}>
                 Ver mis beneficios
@@ -299,9 +297,49 @@ const SuccessScreen = ({ route, navigation }) => {
             style={{
               flexDirection: "row",
               marginTop: 20,
+              marginBottom: 20,
             }}
           >
             <View style={{ flex: 1, alignItems: "center" }}>
+              <Image
+                source={require("../../assets/264px-Gulf_logo.png")}
+                style={{
+                  height: 60,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                  borderRadius: 50,
+                  marginBottom: 10,
+                }}
+              />
+
+              <Text style={{ fontSize: 12 }}>HASTA</Text>
+              <Text style={{ fontSize: 20 }}>10% OFF</Text>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../../assets/rex_logo.jpg")}
+                style={{
+                  height: 60,
+                  aspectRatio: 1,
+                  resizeMode: "contain",
+                  borderRadius: 50,
+                  marginBottom: 10,
+                }}
+              />
+              <Text style={{ fontSize: 12 }}>HASTA</Text>
+              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                alignItems: "center",
+              }}
+            >
               <Image
                 source={require("../../assets/logo-puma1.jpg")}
                 style={{
@@ -312,49 +350,24 @@ const SuccessScreen = ({ route, navigation }) => {
                   marginBottom: 10,
                 }}
               />
-
               <Text style={{ fontSize: 12 }}>HASTA</Text>
-              <Text style={{ fontSize: 20 }}>20% OFF</Text>
-            </View>
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-              }}
-            >
-              <Image
-                source={require("../../assets/logo-mostaza.jpg")}
-                style={{
-                  height: 60,
-                  aspectRatio: 1,
-                  resizeMode: "contain",
-                  borderRadius: 50,
-                  marginBottom: 10,
-                }}
-              />
-              <Text style={{ fontSize: 12 }}>HASTA</Text>
-              <Text style={{ fontSize: 20 }}>20% OFF</Text>
-            </View>
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-              }}
-            >
-              <Image
-                source={require("../../assets/logo-farmacity.png")}
-                style={{
-                  height: 60,
-                  aspectRatio: 1,
-                  resizeMode: "contain",
-                  borderRadius: 50,
-                  marginBottom: 10,
-                }}
-              />
-              <Text style={{ fontSize: 12 }}>HASTA</Text>
-              <Text style={{ fontSize: 20 }}>20% OFF</Text>
+              <Text style={{ fontSize: 20 }}>5% OFF</Text>
             </View>
           </View>
+          <Text
+            style={{
+              color: "#60C1F8",
+              textAlign: "center",
+              padding: 10,
+              fontSize: 16,
+              borderWidth: 1,
+              borderColor: "#60C1F8",
+              borderRadius: 5,
+              marginBottom: 10,
+            }}
+          >
+            Ver todos los descuentos
+          </Text>
         </View>
       </View>
     </>
@@ -365,7 +378,7 @@ export default SuccessScreen;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#0DB578",
+    backgroundColor: "#00a650",
     justifyContent: "center",
   },
 });
