@@ -1,3 +1,4 @@
+import React from "react";
 import Svg, { Circle, Path, G } from "react-native-svg";
 
 const LogoMP = (props) => (

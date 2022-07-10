@@ -1,3 +1,4 @@
+import React from "react";
 import Svg, { G, Rect, Path } from "react-native-svg";
 
 const ShoppingBag = (props) => (
