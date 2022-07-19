@@ -124,6 +124,11 @@ const SuccessScreen = ({ route, navigation }) => {
                     source={require("../../assets/asador.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
+                ) : text.toLowerCase().trim() === "mansano" ? (
+                  <Image
+                    source={require("../../assets/man-sano.jpg")}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
                 ) : (
                   <ShoppingBag />
                 )}
@@ -380,5 +385,6 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#00a650",
     justifyContent: "center",
+    paddingTop: 20,
   },
 });

@@ -86,7 +86,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
                   fontFamily: "Proxima-Nova-SBold",
                 }}
               >
-                ¡Listo! Transferiste {number} a {text}
+                ¡Listo! Enviaste {number} a {`\n${text}`}
               </Text>
             </View>
             <View>
@@ -106,6 +106,12 @@ const SuccessSendScreen = ({ route, navigation }) => {
                     source={{
                       uri: "https://mla-s2-p.mlstatic.com/878295-MLA41574877999_042020-I.jpg",
                     }}
+                    style={{ width: 50, height: 50, borderRadius: 50 }}
+                  />
+                ) : text.toLowerCase().trim() ===
+                  "ana belen rodriguez marcos" ? (
+                  <Image
+                    source={require("../../assets/perro.jpg")}
                     style={{ width: 50, height: 50, borderRadius: 50 }}
                   />
                 ) : text.toLowerCase().trim() === "zihua liu" ? (
@@ -340,7 +346,7 @@ const SuccessSendScreen = ({ route, navigation }) => {
               textAlign: "center",
               padding: 10,
               fontSize: 16,
-              marginTop: 90,
+              marginTop: 70,
               marginBottom: 10,
             }}
           >
@@ -358,5 +364,6 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#00a650",
     justifyContent: "center",
+    paddingTop: 20,
   },
 });
